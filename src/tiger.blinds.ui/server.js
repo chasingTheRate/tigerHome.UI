@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const config = require('./config');
 
-const PORT = config.port;
+const PORT = process.env.PORT || 3000;
 
 console.log(`Env: ${ config.env }`);
 
