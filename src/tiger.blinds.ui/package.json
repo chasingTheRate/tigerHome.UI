@@ -16,28 +16,23 @@
     "socket.io-client": "^2.1.0"
   },
   "scripts": {
-    "start": "npm run build-prod && NODE_ENV=production node server.js",
-    "dev": "npm run build-dev && NODE_ENV=development node server.js",
-    "build-dev": "webpack --config webpack.config.dev.js",
-    "build-prod": "rm -r dist && webpack --config webpack.config.prod.js",
-    "test": "mocha"
+    "start": "npm run devServer",
+    "devServer": "webpack-dev-server --config webpack.config.dev.js --hot --inline"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "css-loader": "^0.28.11",
+    "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.8.3",
-    "nodemon": "^1.17.3",
+    "node-sass": "^4.9.4",
+    "nodemon": "^1.18.5",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "svg-inline-loader": "^0.8.0",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.13",
-    "webpack-dev-server": "^3.1.1",
-    "webpack-hot-middleware": "^2.21.2"
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './addModal.scss';
-import images from '../../../../public/assets/images';
+import images from '../../../../public/assets/images'
 
 import LabelWithInputError from '../../mulituse/labelWithInputError/labelWithInputError';
 

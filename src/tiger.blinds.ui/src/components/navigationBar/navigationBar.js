@@ -7,7 +7,7 @@ class NavigationBar extends React.Component {
     return (
       <div className="navigation-bar-container">
         <div className="nav-bar-img-container ">
-          <img src={ images.tiger }/>
+          <img src={images.tiger}/>
         </div>
         <div className="nav-bar-text-container">
           <div id="nav-title">Tiger Blinds</div>

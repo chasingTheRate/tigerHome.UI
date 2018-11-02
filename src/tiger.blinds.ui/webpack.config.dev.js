@@ -2,16 +2,10 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./public/index.html",
-  filename: "./index.html"
-});
-
 module.exports = {
   mode: 'development',
   entry: [
-    './src/index.js',
-    'webpack-hot-middleware/client'
+    './src/index.js'
   ],
   devtool: 'inline-source-map',
   output: {
@@ -43,14 +37,24 @@ module.exports = {
         }]
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
   plugins: [
-    htmlPlugin,
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
-  ]
+    new webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebPackPlugin({
+      template: './src/templates/index.html',
+      filename: 'index.html'
+    })
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  }
 };

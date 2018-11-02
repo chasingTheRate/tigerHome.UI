@@ -2,9 +2,7 @@ import React from 'react';
 import './blindPage.scss';
 import images from '../../../public/assets/images';
 import LabelWithInputError from '../../components/mulituse/labelWithInputError/labelWithInputError';
-import Label from '../../components/mulituse/label/label';
 import BlindApi from '../../api/blindApi';
-import fakeData from '../../../fakeData.json';
 import Snackbar from '../../components/snackbar/snackbar';
 
 let container;

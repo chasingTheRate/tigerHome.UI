@@ -2,14 +2,7 @@ import EventEmitter from 'events';
 import config from '../../config';
 import axios from 'axios';
 
-// const socket = io('192.168.86.156:8081');
-const env = process.env.NODE_ENV
-const baseUrl = `http://${config[env].server.host}:${config[env].server.port}`;
-
-const GET_BLINDS = 'getBlinds';
-const BLINDLIST_UPDATED = 'blindListUpdated';
-const OPEN_BLIND = 'openBlind';
-const CLOSE_BLIND = 'closeBlind';
+const baseUrl = config.tigerBlindsApi;
 
 class BlindApi extends EventEmitter {
   constructor() {

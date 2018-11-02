@@ -38,7 +38,7 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    this.getBlindList();
+    //this.getBlindList();
   }
 
   getBlindList() {

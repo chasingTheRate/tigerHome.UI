@@ -1,6 +1,5 @@
 import React from 'react';
 import './blind.scss';
-import images from '../../../public/assets/images'; 
 
 var Blind = (props) => {
   let innerCirClassName = 'inner-circle';
