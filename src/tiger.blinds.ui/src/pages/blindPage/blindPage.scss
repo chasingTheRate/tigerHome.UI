@@ -1,0 +1,93 @@
+@import '../../sass-variables';
+
+.blind-page-body {
+  padding: 25px 20px 10px 20px;
+  z-index: 0;
+}
+
+.properties-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.action-button-container {
+  padding: 25px 0px 0px 0px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.add-modal-button {
+  height: 35px;
+  width: 75px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: white;
+  border-width: 0px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 2px rgba(100, 100, 100, 0.5);
+}
+
+.lab-inp-err-container {
+  margin: 0px 0px 10px 0px;
+}
+
+#button-add {
+  color: $font-color-orange;
+}
+
+#button-cancel {
+  color: $font-color-dark;
+  margin: 0px 8px 0px 0px
+}
+
+#set-position-hdr {
+  text-align: center;
+  padding: 8px;
+}
+
+#set-pos-opt-container {
+  display: flex;
+  padding: 8px;
+}
+
+#set-pos-opt-open {
+  margin-left: 70px;
+}
+
+#set-pos-opt-closed {
+  margin-left: 40px;
+}
+
+#display-position {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 75px;
+  font-weight: 300;
+  color: $font-color-dark;
+  justify-content: center;
+  padding-left: 25px;
+}
+
+#position-ctrl-container {
+  display: flex;
+}
+
+.position-ctrl-item {
+  flex-grow: 1;
+  display: flex;
+}
+
+#angle-down {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#angle-up {
+  align-items: center;
+  justify-content: flex-end;
+}

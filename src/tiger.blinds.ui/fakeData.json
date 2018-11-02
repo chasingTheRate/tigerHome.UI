@@ -1,0 +1,12 @@
+[
+  {
+    "blindid": "fakeid001",
+    "blindname": "fake blind",
+    "room": "fake room",
+    "port": 1,
+    "currentposition": 0,
+    "anglelimitopen": 0,
+    "anglelimitclosed": 90,
+    "ipaddress": "XXX.XXX.XXX.XXX"
+  }
+]

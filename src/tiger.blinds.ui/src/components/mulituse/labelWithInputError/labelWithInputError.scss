@@ -1,0 +1,58 @@
+@import '../../../sass-variables';
+@import '../../../sass-fonts';
+
+.lab-inp-err-container {
+  width: 100%;
+}
+
+.label-input-container {
+  display: flex;
+}
+
+// .label-container {
+//   height: 35px;
+//   width: 65px;
+//   min-width: 65px;
+//   //background-color: pink;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end;
+//   padding: 0px 8px 0px 0px;
+// }
+
+// .label-text{
+//   font-family: 'Source Sans Pro', sans-serif;
+//   font-size: 14px;
+//   font-weight: 600;
+//   color: $font-color-dark;
+// }
+
+.input-container {
+  height: 35px;
+  width: 100%;
+  background-color: $color-lightGray-a;
+  display: flex;
+  align-items: center;
+  padding: 0px 8px 0px 0px;
+  border-radius: 5px;
+  input { 
+    width: 100%;
+    border-width: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: $font-color-dark;
+    background-color: rgba(0,0,0,0);
+    padding: 0px 0px 0px 8px;
+  }
+}
+
+.error-container {
+  height: 20px;
+  padding: 0px 0px 0px 8px;
+  margin-left: 68px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
+}
