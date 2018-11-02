@@ -17,9 +17,10 @@
   },
   "scripts": {
     "start:dev": "npm run devServer",
-    "start": "npm run build:prod && node server.js",
+    "start": "node server.js",
     "build:prod": "webpack --config webpack.config.prod.js",
-    "devServer": "webpack-dev-server --config webpack.config.dev.js --hot --inline"
+    "devServer": "webpack-dev-server --config webpack.config.dev.js --hot --inline",
+    "postinstall": "npm run build:prod"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
