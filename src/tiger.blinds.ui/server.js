@@ -5,6 +5,8 @@ const config = require('./config');
 
 const PORT = config.port;
 
+console.log(`Env: ${ config.env }`);
+
 app.use(express.static('dist'));
 app.use(express.static('public'));
 
