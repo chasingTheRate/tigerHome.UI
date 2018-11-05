@@ -9,7 +9,7 @@ class BlindCell extends React.PureComponent {
     this.blind = props.blind
 
     this.handleOnChange = this.handleOnChange.bind(this);
-
+    
     this.state = {
       checked: this.transformBlindState()
     }
@@ -28,6 +28,7 @@ class BlindCell extends React.PureComponent {
     this.setState({
       checked: e.target.checked
     })
+    this.props.onStateChange(this.blind.id, e.target.checked);
   }
 
   render() {

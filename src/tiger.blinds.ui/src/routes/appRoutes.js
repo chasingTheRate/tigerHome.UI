@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import HomePage from '../pages/homePage/homePage';
-import BlindPage from '../pages/blindPage/blindPage';
+import DashboardPage from '../pages/dashboardPage/dashboardPage';
 
 class AppRoutes extends Component {
   render() {
     return (
       <div>
         <Switch>
-          <Route exact path='/' component={ HomePage }/>
-          <Route exact path='/blinds/addBlind' component={ BlindPage }/>
-          <Route path='/blinds/:blind' component={ BlindPage }/>
+          <Route exact path='/' component={ DashboardPage }/>
         </Switch>
       </div>
     );
   }
 }
-
 export default AppRoutes;

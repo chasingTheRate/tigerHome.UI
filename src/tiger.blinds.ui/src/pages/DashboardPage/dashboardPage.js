@@ -2,14 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Pane, Card, Switch, Heading } from 'evergreen-ui';
 import BlindCell from '../../components/blindCell/blindCell';
-import './homePage.scss';
+import './dashboardPage.scss';
 import * as blindActions from '../../_actions/blindsActions';
 
-class HomePage extends React.Component {
+class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
 
     this.blindList = this.blindList.bind(this);
+    this.blindDidChangeState = this.blindDidChangeState.bind(this);
+
   }
 
   componentDidMount() {
@@ -18,14 +20,22 @@ class HomePage extends React.Component {
 
   blindList() {
     return this.props.blinds.map((blind) =>
-      <BlindCell key={blind.id} blind={ blind }></BlindCell>
+      <BlindCell key={blind.id} blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
     );
   }
+
+  blindDidChangeState(id, open) {
+    if (open) {
+      this.props.openBlindWithId(id);
+    } 
+    else {
+      //this.props.closeBlindWithId(this.blind.id);
+    }
+  }
+
   render() {
     const blinds = this.props.blinds || [];
-    console.log(blinds.length);
-    
-
+  
     return (
       <div>
         { blinds.length > 0 &&
@@ -47,8 +57,9 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    getBlinds: () => dispatch(blindActions.getBlinds())
+    getBlinds: () => dispatch(blindActions.getBlinds()),
+    openBlindWithId: (id) => dispatch(blindActions.openBlindWithId(id)) 
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

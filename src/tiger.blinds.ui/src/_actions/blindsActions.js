@@ -1,18 +1,32 @@
-import { RECEIVED_BLINDS_SUCCESSFUL, RECEIVED_BLINDS_FAILED } from './actionTypes'
+import * as actionTypes from './actionTypes'
 import BlindApi from '../api/blindApi';
 
 const blindApi = new BlindApi();
 
 export function receivedBlindsSuccessful(blinds) {
   return {
-    type: RECEIVED_BLINDS_SUCCESSFUL,
+    type: actionTypes.RECEIVED_BLINDS_SUCCESSFUL,
     blinds
   }
 }
 
 export function receivedBlindsFailed(error) {
   return {
-    type: RECEIVED_BLINDS_SUCCESSFUL,
+    type: actionTypes.RECEIVED_BLINDS_FAILED,
+    error
+  }
+}
+
+export function openedBlindSuccess(blind) {
+  return {
+    type: actionTypes.OPENED_BLIND_SUCCESSFUL,
+    blind
+  }
+}
+
+export function openBlindFailed(error) {
+  return {
+    type: actionTypes.OPENED_BLIND_FAILED,
     error
   }
 }
@@ -29,3 +43,16 @@ export function getBlinds() {
       });
   }
 }
+
+export function openBlindWithId(id) {
+  return function(dispatch) {
+    return blindApi.openBlindWithId(id)
+      .then( _ => {
+        dispatch(openedBlindSuccess(id));
+      })
+      .catch( error => {
+        dispatch(openedBlindFailed(error));
+      });
+  }
+}
+
