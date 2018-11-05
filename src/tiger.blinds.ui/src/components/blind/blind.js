@@ -22,8 +22,8 @@ var Blind = (props) => {
   return (
       <li className="blind-container" onClick={ didClickCell }>
         <div className="blind-texts-container">
-          <div className="blind-text-container blind-description">{ props.blind.blindName }</div>
-          <div className="blind-text-container blind-room">{ props.blind.room }</div>
+          <div className="blind-text-container blind-description">{ props.blind.name }</div>
+          <div className="blind-text-container blind-room">{ props.blind.roomId }</div>
         </div>
         <div className="blind-img-container">
           <button onClick={ handleClick }>

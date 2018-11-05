@@ -1,24 +1,19 @@
 import React from 'react';
 import './navigationBar.scss';
 import images from '../../../public/assets/images';
+import { Heading, Pane, Button } from 'evergreen-ui';
 
 class NavigationBar extends React.Component {
   render() {
     return (
-      <div className="navigation-bar-container">
-        <div className="nav-bar-img-container ">
-          <img src={images.tiger}/>
-        </div>
-        <div className="nav-bar-text-container">
-          <div id="nav-title">Tiger Blinds</div>
-        </div>
-        <div className="nav-bar-image-container">
-          <img src={ images.notConnected }/>
-        </div> 
-        <div className="nav-bar-button-container">
-          <input type="image" src={ images.add }></input>
-        </div>  
-      </div>
+      <Pane elevation={1} display="flex" padding={16}>
+        <Pane flex={1} alignItems="center" display="flex">
+          <div className="nav-bar-img-container">
+            <img src={ images.tiger }></img>
+          </div>
+          <Heading marginLeft={ 8 } size={600}>Tiger Blinds</Heading>
+        </Pane>
+      </Pane>
     );
   }
 }

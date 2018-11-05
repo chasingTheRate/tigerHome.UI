@@ -8,7 +8,7 @@ class BlindApi extends EventEmitter {
   constructor() {
     super();                    
   }
-  getBlindList() {
+  getBlinds() {
     return axios.get(`${baseUrl}/blinds`);
   }
 
