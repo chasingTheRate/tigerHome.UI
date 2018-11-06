@@ -46,13 +46,14 @@ export function getBlinds() {
 
 export function openBlindWithId(id) {
   return function(dispatch) {
-    return blindApi.openBlindWithId(id)
-      .then( _ => {
-        dispatch(openedBlindSuccess(id));
-      })
-      .catch( error => {
-        dispatch(openedBlindFailed(error));
-      });
+    return dispatch(openedBlindSuccess(id));
+    // return blindApi.openBlindWithId(id)
+    //   .then( _ => {
+    //     dispatch(openedBlindSuccess(id));
+    //   })
+    //   .catch( error => {
+    //     dispatch(openedBlindFailed(error));
+    //   });
   }
 }
 

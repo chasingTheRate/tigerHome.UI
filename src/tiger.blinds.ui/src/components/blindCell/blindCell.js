@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Pane, Card, Switch, Heading } from 'evergreen-ui';
 import blindStates from '../../objects/blindStates';
 
-class BlindCell extends React.PureComponent {
+class BlindCell extends React.Component {
   constructor(props) {
     super(props);
     this.blind = props.blind
@@ -28,7 +28,7 @@ class BlindCell extends React.PureComponent {
     this.setState({
       checked: e.target.checked
     })
-    this.props.onStateChange(this.blind.id, e.target.checked);
+    this.props.onStateChange(this.blind, e.target.checked);
   }
 
   render() {

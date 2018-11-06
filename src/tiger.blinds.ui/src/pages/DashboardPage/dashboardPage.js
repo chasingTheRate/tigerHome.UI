@@ -18,24 +18,31 @@ class DashboardPage extends React.Component {
     this.props.getBlinds();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return true;
+  }
+
   blindList() {
-    return this.props.blinds.map((blind) =>
+    return this.props.blinds.map((blind) => 
       <BlindCell key={blind.id} blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
     );
   }
 
-  blindDidChangeState(id, open) {
+  blindDidChangeState(blind, open) {
     if (open) {
-      this.props.openBlindWithId(id);
+      const test = Object.assign({}, blind, {
+        name: 'mark'
+      })
+      this.props.openBlindWithId(test);
     } 
     else {
-      //this.props.closeBlindWithId(this.blind.id);
+      //this.props.closeBlindWithId(this.blind.id); 
     }
   }
 
   render() {
     const blinds = this.props.blinds || [];
-  
+    console.log(blinds);
     return (
       <div>
         { blinds.length > 0 &&
@@ -49,7 +56,6 @@ class DashboardPage extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(state);
   return {
     blinds: state.blinds.data
   };
