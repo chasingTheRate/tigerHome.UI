@@ -6,7 +6,6 @@ import blindStates from '../../objects/blindStates';
 class BlindCell extends React.Component {
   constructor(props) {
     super(props);
-    this.blind = props.blind
 
     this.handleOnChange = this.handleOnChange.bind(this);
     
@@ -16,7 +15,7 @@ class BlindCell extends React.Component {
   }
 
   transformBlindState() {
-    switch (this.blind.stateCurrent) {
+    switch (this.props.blind.stateCurrent) {
       case blindStates.open:
         return true
       default:
@@ -28,7 +27,7 @@ class BlindCell extends React.Component {
     this.setState({
       checked: e.target.checked
     })
-    this.props.onStateChange(this.blind, e.target.checked);
+    this.props.onStateChange(this.props.blind.id, e.target.checked);
   }
 
   render() {
@@ -39,7 +38,7 @@ class BlindCell extends React.Component {
         padding={16}
         marginBottom={8}>
           <Pane flex={1} display="flex" alignItems="center">
-            <Heading marginRight={8} size={500}>{ this.blind.name }</Heading>
+            <Heading marginRight={8} size={500}>{ this.props.blind.name }</Heading>
           </Pane>
           <Pane flex={1} display="flex" flexDirection="row-reverse">
             <Switch 

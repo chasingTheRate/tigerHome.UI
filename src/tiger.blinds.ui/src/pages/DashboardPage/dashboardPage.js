@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Pane, Card, Switch, Heading } from 'evergreen-ui';
-import BlindCell from '../../components/blindCell/blindCell';
-import './dashboardPage.scss';
+import BlindList from '../../components/blindList/blindList';
 import * as blindActions from '../../_actions/blindsActions';
 
 class DashboardPage extends React.Component {
@@ -18,36 +17,28 @@ class DashboardPage extends React.Component {
     this.props.getBlinds();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return true;
-  }
-
   blindList() {
-    return this.props.blinds.map((blind) => 
-      <BlindCell key={blind.id} blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
+    return this.props.blinds.map( blind => 
+      <BlindCell key={ blind.id } blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
     );
   }
 
-  blindDidChangeState(blind, open) {
-    if (open) {
-      const test = Object.assign({}, blind, {
-        name: 'mark'
-      })
-      this.props.openBlindWithId(test);
+  blindDidChangeState(id, isOpen) {
+    if (isOpen) {
+      this.props.openBlindWithId(id);
     } 
     else {
-      //this.props.closeBlindWithId(this.blind.id); 
+      this.props.closeBlindWithId(id); 
     }
   }
 
   render() {
     const blinds = this.props.blinds || [];
-    console.log(blinds);
     return (
       <div>
         { blinds.length > 0 &&
           <Pane elevation={0} display="flex" flexDirection="column" padding={16}>
-            { this.blindList() }
+            <BlindList blinds={ blinds } blindDidChangeState={ this.blindDidChangeState }></BlindList>
           </Pane>
         }
       </div>
@@ -64,7 +55,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     getBlinds: () => dispatch(blindActions.getBlinds()),
-    openBlindWithId: (id) => dispatch(blindActions.openBlindWithId(id)) 
+    openBlindWithId: (id) => dispatch(blindActions.openBlindWithId(id)),
+    closeBlindWithId: (id) => dispatch(blindActions.closeBlindWithId(id))
   };
 }
 

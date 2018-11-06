@@ -19,11 +19,11 @@ class BlindApi extends EventEmitter {
     return axios.post(`${baseUrl}/blinds/openBlindWithId`, data);
   }
 
-  closeBlind(id) {
+  closeBlindWithId(id) {
     const data = { data: {
-      blindid: id
+      id
     }}
-    return axios.post(`${baseUrl}/blinds/closeBlind`, data);
+    return axios.post(`${baseUrl}/blinds/closeBlindWithId`, data);
   }
 
   addBlind(data) {
