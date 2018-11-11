@@ -1,6 +1,6 @@
 import * as actionTypes from '../_actions/actionTypes';
 
-export default function blindsReducer(state={}, action) {
+export default function blindsReducer(state={ data:[], error:{} }, action) {
   switch (action.type) {
 
     case actionTypes.RECEIVED_BLINDS_SUCCESSFUL:

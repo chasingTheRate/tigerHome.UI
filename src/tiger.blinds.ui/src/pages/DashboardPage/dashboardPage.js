@@ -1,26 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Pane, Card, Switch, Heading } from 'evergreen-ui';
-import BlindList from '../../components/blindList/blindList';
+import BlindCell from '../../components/blindCell/blindCell';
 import * as blindActions from '../../_actions/blindsActions';
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.blindList = this.blindList.bind(this);
+    this.didSelectBlind = this.didSelectBlind.bind(this);
     this.blindDidChangeState = this.blindDidChangeState.bind(this);
-
   }
 
   componentDidMount() {
     this.props.getBlinds();
   }
 
-  blindList() {
-    return this.props.blinds.map( blind => 
-      <BlindCell key={ blind.id } blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
-    );
+  didSelectBlind(id) {
+    console.log(this.props);
+    this.props.history.push(`/blinds/${id}`);
   }
 
   blindDidChangeState(id, isOpen) {
@@ -38,7 +36,17 @@ class DashboardPage extends React.Component {
       <div>
         { blinds.length > 0 &&
           <Pane elevation={0} display="flex" flexDirection="column" padding={16}>
-            <BlindList blinds={ blinds } blindDidChangeState={ this.blindDidChangeState }></BlindList>
+            { blinds.map( blind => {
+                return (
+                  <BlindCell 
+                    key={ blind.id }
+                    blind={ blind }
+                    onStateChange={ this.blindDidChangeState }
+                    onClick={ this.didSelectBlind }>
+                  </BlindCell>    
+                )          
+              })
+            }
           </Pane>
         }
       </div>

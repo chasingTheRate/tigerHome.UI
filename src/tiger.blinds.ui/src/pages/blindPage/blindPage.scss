@@ -1,0 +1,23 @@
+.port-input-container{
+  display: flex;
+  flex-direction: column;
+  #port-label{
+    margin-bottom: 5px;
+  }
+}
+
+.bp-switch-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+  #bp-switch-label {
+    margin-left: 5px;
+  }
+}
+
+.bp-button-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
