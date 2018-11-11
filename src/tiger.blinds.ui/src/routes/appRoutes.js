@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import DashboardPage from '../pages/dashboardPage/dashboardPage';
+import DashboardPage from '../pages/dashboardPage2/dashboardPage2';
 import BlindPage from '../pages/blindPage/blindPage';
 
 
