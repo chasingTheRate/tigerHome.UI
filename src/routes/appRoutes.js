@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import DashboardPage2 from '../pages/dashboardPage2/dashboardPage2';
+import DashboardPage from '../pages/dashboardPage/dashboardPage';
+import BlindPage from '../pages/blindPage/BlindPage';
 
 class AppRoutes extends Component {
   render() {
     return (
       <div>
         <Switch>
-          <Route exact path='/' component={ DashboardPage2 }/>
+          <Route exact path='/blinds/:id' component={ BlindPage }/>
+          <Route exact path='/blinds' component={ DashboardPage }/>
         </Switch>
       </div>
     );

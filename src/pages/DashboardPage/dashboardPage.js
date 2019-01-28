@@ -8,19 +8,18 @@ class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
 
-    this.blindList = this.blindList.bind(this);
     this.blindDidChangeState = this.blindDidChangeState.bind(this);
-
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   componentDidMount() {
     this.props.getBlinds();
   }
 
-  blindList() {
-    return this.props.blinds.map( blind => 
-      <BlindCell key={ blind.id } blind={ blind } onStateChange={ this.blindDidChangeState }></BlindCell>
-    );
+  handleOnClick(id) {
+    console.log(`handleBlindCellOnClick, id: ${id}`);
+    const { history } = this.props;
+    history.push(`/blinds/${id}`)
   }
 
   blindDidChangeState(id, isOpen) {
@@ -37,9 +36,11 @@ class DashboardPage extends React.Component {
     return (
       <div>
         { blinds.length > 0 &&
-          <Pane elevation={0} display="flex" flexDirection="column" padding={16}>
-            <BlindList blinds={ blinds } blindDidChangeState={ this.blindDidChangeState }></BlindList>
-          </Pane>
+          <BlindList
+            blinds={ blinds }
+            blindDidChangeState={ this.blindDidChangeState }
+            onClick={ this.handleOnClick }
+          />
         }
       </div>
     )
@@ -48,7 +49,7 @@ class DashboardPage extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    blinds: state.blinds.data
+    blinds: state.blinds.blinds
   };
 }
 

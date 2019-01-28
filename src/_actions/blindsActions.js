@@ -45,6 +45,20 @@ export function closedBlindFailed(error) {
   }
 }
 
+export function getBlindSuccessful(blind) {
+  return {
+    type: actionTypes.GET_BLIND_SUCCESSFUL,
+    blind
+  }
+}
+
+export function getBlindFailed(error) {
+  return {
+    type: actionTypes.GET_BLIND_FAILED,
+    error
+  }
+}
+
 export function getBlinds() {
   return function(dispatch) {
     return blindApi.getBlinds()
@@ -54,6 +68,19 @@ export function getBlinds() {
       })
       .catch( error => {
         dispatch(receivedBlindsFailed(error));
+      });
+  }
+}
+
+export function getBlindById(id) {
+  return function(dispatch) {
+    return blindApi.getBlindById(id)
+      .then( response => {
+        const blind = response.data;
+        dispatch(getBlindSuccessful(blind));
+      })
+      .catch( error => {
+        dispatch(getBlindFailed(error));
       });
   }
 }
