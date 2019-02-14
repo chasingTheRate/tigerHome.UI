@@ -20,7 +20,8 @@
     "build:prod": "webpack --config webpack.config.prod.js",
     "build": "webpack --config webpack.config.prod.js",
     "devServer": "webpack-dev-server --config webpack.config.dev.js --hot --inline --open",
-    "postinstall": "npm run build:prod"
+    "postinstall": "npm run build:prod",
+    "heroku-prebuild": "npm install --dev"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
