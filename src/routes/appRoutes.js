@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import DashboardPage from '../pages/dashboardPage/dashboardPage';
-import BlindPage from '../pages/blindPage/BlindPage';
+import BlindPage from '../pages/blindPage/blindPage';
 
 class AppRoutes extends Component {
   render() {
