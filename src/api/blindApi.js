@@ -2,7 +2,7 @@ import EventEmitter from 'events';
 import config from '../../config';
 import axios from 'axios';
 
-const baseUrl = `${process.env.TIGER_BLINDS_API}/api/v1`;
+const baseUrl = `${config.tigerBlindsApi}/api/v1`;
 
 class BlindApi extends EventEmitter {
   constructor() {

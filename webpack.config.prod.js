@@ -12,6 +12,10 @@ module.exports = merge( common, {
     new HtmlWebPackPlugin({
       template: "./src/templates/index.html",
       filename: "./index.html"
+    }),
+    new webpack.DefinePlugin({           
+      NODE_ENV: JSON.stringify(process.env.NODE_ENV),      
+      TIGER_BLINDS_API: JSON.stringify(process.env.TIGER_BLINDS_API)
     })
   ]
 });
