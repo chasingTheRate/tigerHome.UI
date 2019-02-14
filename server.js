@@ -5,9 +5,13 @@ const config = require('./config');
 
 const PORT = process.env.PORT || 3000;
 
-console.log(`Env: ${ config.env }`);
-console.log(`Tiger Blinds API: ${ process.env.TIGER_BLINDS_API }`);
-
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] === 'https') {
+    res.redirect('http://' + req.hostname + req.url);
+  } else {
+    next();
+  }
+})
 app.use(express.static('dist'));
 app.use(express.static('public'));
 
