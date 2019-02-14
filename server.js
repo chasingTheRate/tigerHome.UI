@@ -6,6 +6,7 @@ const config = require('./config');
 const PORT = process.env.PORT || 3000;
 
 console.log(`Env: ${ config.env }`);
+console.log(`Tiger Blinds API: ${ process.env.TIGER_BLINDS_API }`);
 
 app.use(express.static('dist'));
 app.use(express.static('public'));
