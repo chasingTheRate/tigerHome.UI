@@ -9,8 +9,6 @@ class BlindApi extends EventEmitter {
     super();                    
   }
   getBlinds() {
-    console.log(config.tigerBlindsApi);
-    console.log(process.env.TIGER_BLINDS_API);
     return axios.get(`${baseUrl}/blinds`);
   }
 
@@ -27,7 +25,6 @@ class BlindApi extends EventEmitter {
   }
 
   addBlind(data) {
-    console.log(`blindApi:addBlind - data ${ JSON.stringify(data, null, 1) }`);
     return axios.post(`${baseUrl}/blinds/addBlind`, { 
       data 
     })

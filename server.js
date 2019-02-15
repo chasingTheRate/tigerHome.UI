@@ -16,7 +16,6 @@ app.use(express.static('dist'));
 app.use(express.static('public'));
 
 app.get('*', (req, res) => {
-  console.log('sending file...');
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
