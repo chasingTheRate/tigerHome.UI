@@ -15,7 +15,7 @@ class BlindCell extends React.Component {
   }
 
   transformBlindState() {
-    switch (this.props.blind.stateCurrent) {
+    switch (this.props.blind.blindState) {
       case blindStates.open:
         return true
       default:
