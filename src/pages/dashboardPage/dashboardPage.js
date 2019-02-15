@@ -17,7 +17,6 @@ class DashboardPage extends React.Component {
   }
 
   handleOnClick(id) {
-    console.log(`handleBlindCellOnClick, id: ${id}`);
     const { history } = this.props;
     history.push(`/blinds/${id}`)
   }
