@@ -11,7 +11,7 @@ class NavigationBar extends React.Component {
           <div className="nav-bar-img-container">
             <img src={ images.tiger }></img>
           </div>
-          <Heading marginLeft={ 8 } size={600}>Tiger Blinds</Heading>
+          <Heading marginLeft={ 8 } size={600}>Home Server</Heading>
         </Pane>
       </Pane>
     );
