@@ -47,6 +47,7 @@ class DashboardPage extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
+  console.log(state);
   return {
     blinds: state.blinds.blinds
   };

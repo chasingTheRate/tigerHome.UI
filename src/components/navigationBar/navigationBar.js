@@ -1,10 +1,11 @@
 import React from 'react';
 import './navigationBar.scss';
 import images from '../../../public/assets/images';
-import { Heading, Pane, Button } from 'evergreen-ui';
+import { Heading, Pane, IconButton } from 'evergreen-ui';
 
 class NavigationBar extends React.Component {
   render() {
+    const { handleOnAdd } = this.props;
     return (
       <Pane elevation={1} display="flex" padding={16}>
         <Pane flex={1} alignItems="center" display="flex">
@@ -12,6 +13,9 @@ class NavigationBar extends React.Component {
             <img src={ images.tiger }></img>
           </div>
           <Heading marginLeft={ 8 } size={600}>Home Server</Heading>
+        </Pane>
+        <Pane>
+          <IconButton icon="add" intent="none" onClick={ handleOnAdd }/>
         </Pane>
       </Pane>
     );
