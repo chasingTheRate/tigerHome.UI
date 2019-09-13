@@ -9,10 +9,17 @@ class PrimaryLayout extends Component {
   }
 
   render() {
+
     return (
-      <div>
+      <div style={{height: "100%"}}>
         <NavigationBar handleOnAdd={this.handleOnAdd}/>
-        <Pane elevation={0} display="flex" flexDirection="column" padding={16}>
+        <Pane
+          elevation={0}
+          display="flex"
+          height="100%"
+          flexDirection="column"
+          padding={16}
+        >
           { this.props.children }
         </Pane>        
       </div>

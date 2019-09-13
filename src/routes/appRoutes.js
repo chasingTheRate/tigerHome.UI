@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from '../pages/homePage/';
 import DashboardPage from '../pages/dashboardPage/dashboardPage';
+import LoginPage from '../pages/loginPage';
 import BlindPage from '../pages/blindPage/blindPage';
 import AccessoryRoutes from './accessoryRoutes';
 
@@ -13,6 +14,7 @@ class AppRoutes extends Component {
           <Route exact path='/blinds/:id' component={ BlindPage }/>
           <Route exact path='/blinds' component={ DashboardPage }/>
           <Route path='/accessory' component={ AccessoryRoutes }/>
+          <Route path='/login' component={ LoginPage }/>
           <Route exact path='/' component={ HomePage }/>
         </Switch>
       </div>

@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
 import blinds from './blindsReducer';
+import user from './userReducers';
+
 
 const rootReducer = combineReducers({
-  blinds
+  blinds,
+  user
 });
 
 export default rootReducer;

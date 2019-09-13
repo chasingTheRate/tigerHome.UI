@@ -8,6 +8,15 @@ class BlindApi extends EventEmitter {
   constructor() {
     super();                    
   }
+
+  attemptLogin(userInfo) {
+    return axios.post(`${baseUrl}/login`, { 
+      data: {
+        userInfo,
+      } 
+    })
+  }
+
   getBlinds() {
     return axios.get(`${baseUrl}/blinds`);
   }

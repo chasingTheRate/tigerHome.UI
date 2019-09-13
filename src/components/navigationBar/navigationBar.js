@@ -12,7 +12,7 @@ class NavigationBar extends React.Component {
           <div className="nav-bar-img-container">
             <img src={ images.tiger }></img>
           </div>
-          <Heading marginLeft={ 8 } size={600}>Home Server</Heading>
+          <Heading marginLeft={ 8 } size={600}>Tiger Home</Heading>
         </Pane>
         <Pane>
           <IconButton icon="add" intent="none" onClick={ handleOnAdd }/>
